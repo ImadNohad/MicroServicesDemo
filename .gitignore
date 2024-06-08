@@ -1,0 +1,92 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variable files
+.env
+
+# Output of npm pack
+*.tgz
+
+# Vite cache
+.vite
+
+# Build output
+dist/
+build/
+
+# Local env files
+.env.local
+.env.*.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# MacOS
+.DS_Store
+
+# Linux
+*~
+
+# Specific to catalog-service
+catalog-service/node_modules/
+catalog-service/npm-debug.log*
+catalog-service/yarn-debug.log*
+catalog-service/yarn-error.log*
+catalog-service/.env
+
+# Specific to order-service
+order-service/node_modules/
+order-service/npm-debug.log*
+order-service/yarn-debug.log*
+order-service/yarn-error.log*
+order-service/.env
+
+# Specific to notification-service
+notification-service/node_modules/
+notification-service/npm-debug.log*
+notification-service/yarn-debug.log*
+notification-service/yarn-error.log*
+notification-service/.env
+
+# Specific to notification-websocket
+notification-websocket/node_modules/
+notification-websocket/npm-debug.log*
+notification-websocket/yarn-debug.log*
+notification-websocket/yarn-error.log*
+notification-websocket/.env
+
+# Specific to frontend (React app)
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/.vscode/
+frontend/.idea/
+frontend/.DS_Store
+frontend/*~
+frontend/dist/
+frontend/build/
