@@ -57,6 +57,11 @@ services:
       - "15672:15672"
     networks:
       - bookstore-network
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 networks:
   bookstore-network:
