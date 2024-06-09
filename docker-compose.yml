@@ -2,16 +2,17 @@ version: "3.8"
 
 services:
   catalog-service:
-    build: ./catalog-service
+    build: ./backend/catalog-service
     ports:
       - "3000:3000"
     networks:
       - bookstore-network
     depends_on:
       - mongodb
+      - rabbitmq
 
   order-service:
-    build: ./order-service
+    build: ./backend/order-service
     ports:
       - "3001:3001"
     networks:
@@ -21,7 +22,7 @@ services:
       - rabbitmq
 
   notification-service:
-    build: ./notification-service
+    build: ./backend/notification-service
     ports:
       - "3002:3002"
       - "3003:3003"
@@ -53,7 +54,6 @@ services:
   rabbitmq:
     image: rabbitmq:3-management
     ports:
-      - "5672:5672"
       - "15672:15672"
     networks:
       - bookstore-network

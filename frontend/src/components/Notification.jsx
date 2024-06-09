@@ -21,6 +21,14 @@ const Notification = () => {
   useEffect(() => {
     const socket = io("http://localhost:3003");
 
+    socket.on("catalog_notification", (message) => {
+      setNotifications((prevNotifications) => [
+        { message },
+        ...prevNotifications,
+      ]);
+      setUnreadCount((prevCount) => prevCount + 1);
+    });
+
     socket.on("order_notification", (message) => {
       setNotifications((prevNotifications) => [
         { message },
@@ -48,7 +56,7 @@ const Notification = () => {
       {showNotifications && (
         <div className="notifications-list">
           <h2>Notifications</h2>
-          <ul>
+          <ul className="scrollable-list">
             {notifications.map((notification, index) => (
               <li key={index}>{notification.message}</li>
             ))}

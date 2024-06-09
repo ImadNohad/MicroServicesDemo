@@ -7,10 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://mongodb:27017/orders", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb://mongodb:27017/orders", {});
 
 const orderSchema = new mongoose.Schema({
   bookId: String,
@@ -21,7 +18,7 @@ const orderSchema = new mongoose.Schema({
 
 const Order = mongoose.model("Order", orderSchema);
 
-amqp.connect("amqp://rabbitmq", (err, connection) => {
+amqp.connect("amqp://rabbitmq:5672", (err, connection) => {
   if (err) {
     throw err;
   }
@@ -29,7 +26,7 @@ amqp.connect("amqp://rabbitmq", (err, connection) => {
     if (err) {
       throw err;
     }
-    channel.assertQueue("order_placed", { durable: false });
+    channel.assertQueue("order_placed", { durable: true });
 
     app.post("/orders", async (req, res) => {
       const newOrder = new Order({ ...req.body, status: "Pending" });

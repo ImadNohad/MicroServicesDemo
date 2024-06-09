@@ -1,0 +1,17 @@
+.book-list {
+    margin: 20px 0;
+  }
+  
+  .book-list h1 {
+    margin-bottom: 20px;
+  }
+  
+  .table th,
+  .table td {
+    vertical-align: middle;
+  }
+  
+  .table .btn {
+    margin-right: 5px;
+  }
+  
